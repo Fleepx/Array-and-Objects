@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const personajes = [
   {
     id: 1,
+    imagen: "./assets/imgs/AukanAgatash.jpg",
     nombre: "Aukan Agatosh",
     raza: "Goliath",
     clase: "Bárbaro",
@@ -12,6 +13,7 @@ const personajes = [
   },
   {
     id: 2,
+    imagen: "./assets/imgs/GregorioReigen.jpeg",
     nombre: "Gregorio Reigen",
     raza: "Elfo",
     clase: "Hechicero",
@@ -22,8 +24,9 @@ const personajes = [
   },
   {
     id: 3,
+    imagen: "./assets/imgs/Izamir.jpg",
     nombre: "Izamir",
-    raza: "Orco",
+    raza: "Medio-Orco",
     clase: "Bárbaro",
     nivel: 10,
     estado: "Vivo",
@@ -32,6 +35,7 @@ const personajes = [
   },
   {
     id: 4,
+    imagen: "./assets/imgs/OldBasilio.jpg",
     nombre: "Old Basilio",
     raza: "Humana",
     clase: "Clérigo",
@@ -42,6 +46,7 @@ const personajes = [
   },
   {
     id: 5,
+    imagen: "./assets/imgs/LâramissTeldúriën.jpg",
     nombre: "Lâramiss Teldúriën",
     raza: "Gnomo",
     clase: "Mago",
@@ -52,6 +57,7 @@ const personajes = [
   },
   {
     id: 6,
+    imagen:"./assets/imgs/PrudenceMarplefern.png",
     nombre: "Prudence Marplefern",
     raza: "Halfling",
     clase: "Pícara",
@@ -62,9 +68,10 @@ const personajes = [
   },
   {
     id: 7,
-    nombre: "Korrin Stonehammer",
-    raza: "Enano",
-    clase: "Peleador",
+    imagen: "./assets/imgs/LyraMoonshadow.jpg",
+    nombre: "Lyra Moonshadow",
+    raza: "Elfa",
+    clase: "Hunter",
     nivel: "???",
     estado: "Vivo",
     alineamiento: true,
@@ -72,6 +79,7 @@ const personajes = [
   },
   {
     id: 8,
+    imagen: "./assets/imgs/ShavaDarkwood.png",
     nombre: "Shava Darkwood",
     raza: "Elfo",
     clase: "Pícara",
@@ -82,6 +90,7 @@ const personajes = [
   },
   {
     id: 9,
+    imagen: "./assets/imgs/BranBlackwood.jpg",
     nombre: "Bran Blackwood",
     raza: "Humano",
     clase: "Pícaro",
@@ -92,8 +101,9 @@ const personajes = [
   },
   {
     id: 10,
-    nombre: "Kael Fireheart",
-    raza: "Tiefling",
+    imagen: "./assets/imgs/DrogathStormclaw.jpg",
+    nombre: "Drogath Stormclaw",
+    raza: "Dragonborn",
     clase: "Mago",
     nivel: "???",
     estado: "Muerto",
@@ -102,19 +112,22 @@ const personajes = [
   }
 ];
 
-const renderPJ = ({ nombre, raza, clase, nivel, estado, alineamiento, personajeJugable}) => {
+const renderPJ = ({ imagen, nombre, raza, clase, nivel, estado, alineamiento, personajeJugable}) => {
+  const iconoEstado = estado === "Vivo" ? '<i class="fa-solid fa-heart fa-xs"></i>' : '<i class="fa-solid fa-skull fa-xs"></i>';
+  const iconoAlineamiento = alineamiento ? '<i class="fa-solid fa-cross fa-xs"></i></i>' : '<i class="fa-solid fa-book-skull fa-xs"></i>';
   return `<div class="personaje-${personajeJugable ? "hero" : "npc"}">
+        <div class="perfil"><img class="portrait" src="${imagen}" alt="${nombre}" /></div>    
         <h2>Nombre: ${nombre}</h2>
         <p>Raza: ${raza}</p>
         <p>Clase: ${clase}</p>
         <p>Nivel: ${nivel}</p>
-        <p class="${estado === "Vivo" ? "alive" : "dead"}">Estado: ${estado}</p>
-        <p class="${alineamiento ? "good" : "evil"}">Alineamiento: ${alineamiento ? "Bueno" : "Malvado"}</p>
+        <p class="${estado === "Vivo" ? "alive" : "dead"}">Estado: ${estado} ${iconoEstado}</p>
+        <p class="${alineamiento ? "good" : "evil"}">Alineamiento: ${alineamiento ? "Bueno" : "Malvado"} ${iconoAlineamiento}</p>
         </div>`;
 };
 
 let personajesJugablesHTML = "";
-let personajeNoJugableHTML = "";
+let personajeNoJugableHTML = "";  
 
 for (const personaje of personajes) {
   if (personaje.personajeJugable) {

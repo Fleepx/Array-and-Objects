@@ -8,3 +8,50 @@
 .good, .alive {
     color: green;
 }
+.Hero {
+    height: 40rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+#botones {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+button {
+    position:absolute;
+    color: red;
+    background-color: black;
+    width: 10rem;
+    padding: 20px;
+    font-size: 25px;
+    
+    translate: 10px -30rem;
+}
+button:hover {
+    background-color: dimgrey;
+}
+.titulo {
+    text-align: center;
+    margin: 2rem;
+}
+#PJ, #NPC {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 2rem;
+}
+
+.personaje-hero, .personaje-npc {
+    width: 20rem;
+    padding: 10px;
+    border: 2px solid black;
+}
+.perfil {
+    height: max-content;
+}
+.portrait {
+    width: 20rem;
+}

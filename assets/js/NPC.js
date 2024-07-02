@@ -2,9 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
 const personajes = [
   {
     id: 7,
-    nombre: "Korrin Stonehammer",
-    raza: "Enano",
-    clase: "Peleador",
+    imagen: "./assets/imgs/LyraMoonshadow.jpg",
+    nombre: "Lyra Moonshadow",
+    raza: "Elfa",
+    clase: "Hunter",
     nivel: "???",
     estado: "Vivo",
     alineamiento: true,
@@ -12,6 +13,7 @@ const personajes = [
   },
   {
     id: 8,
+    imagen: "./assets/imgs/ShavaDarkwood.png",
     nombre: "Shava Darkwood",
     raza: "Elfo",
     clase: "Pícara",
@@ -22,6 +24,7 @@ const personajes = [
   },
   {
     id: 9,
+    imagen: "./assets/imgs/BranBlackwood.jpg",
     nombre: "Bran Blackwood",
     raza: "Humano",
     clase: "Pícaro",
@@ -32,8 +35,9 @@ const personajes = [
   },
   {
     id: 10,
-    nombre: "Kael Fireheart",
-    raza: "Tiefling",
+    imagen: "./assets/imgs/DrogathStormclaw.jpg",
+    nombre: "Drogath Stormclaw",
+    raza: "Dragonborn",
     clase: "Mago",
     nivel: "???",
     estado: "Muerto",
@@ -42,8 +46,9 @@ const personajes = [
   }
   ];
   
-  const renderPJ = ({ nombre, raza, clase, nivel, estado, alineamiento, personajeJugable}) => {
+  const renderPJ = ({ imagen, nombre, raza, clase, nivel, estado, alineamiento, personajeJugable}) => {
     return `<div class="personaje-${personajeJugable ? "hero" : "npc"}">
+          <div class="perfil"><img class="portrait" src="${imagen}" alt="${nombre}" /></div>    
           <h2>Nombre: ${nombre}</h2>
           <p>Raza: ${raza}</p>
           <p>Clase: ${clase}</p>
